@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link href="css/reset.css" rel="stylesheet" type="text/css">
+    <link href="css/layout.css" rel="stylesheet" type="text/css">
+    <link href="css/themes.css" rel="stylesheet" type="text/css">
+    <link href="css/typography.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="css/shCore.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/jquery.jqplot.css" rel="stylesheet" type="text/css">
+    <link href="css/jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css">
+    <link href="css/data-table.css" rel="stylesheet" type="text/css">
+    <link href="css/form.css" rel="stylesheet" type="text/css">
+    <link href="css/ui-elements.css" rel="stylesheet" type="text/css">
+    <link href="css/wizard.css" rel="stylesheet" type="text/css">
+    <link href="css/sprite.css" rel="stylesheet" type="text/css">
+    <link href="css/gradient.css" rel="stylesheet" type="text/css">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    
+    {% block content %}{% endblock %}
+
+   
+</body>
+</html>
