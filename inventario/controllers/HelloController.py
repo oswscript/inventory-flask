@@ -1,9 +1,9 @@
 """MODULES FLASK"""
-from project import app
+from inventario import app
 from flask import render_template, redirect, url_for
 
 """HELPERS"""
-from project.helpers import form
+from inventario.helpers import form
 
 """
     Import MOdels
