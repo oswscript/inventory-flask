@@ -1,5 +1,12 @@
-#Project Flask MVC
+"""
+;==========================================
+; Title:  Iventory System
+; Author: @oswscript
+; Date:   21 July 2020
+; Version: 0
+;==========================================
 
+"""
 __author__ = "oswscript"
 __version__ = "0"
 __email__ = "oswscript@gmail.com"
