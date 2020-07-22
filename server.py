@@ -12,6 +12,12 @@ __version__ = "0"
 __email__ = "oswscript@gmail.com"
 
 from inventario import app
+from inventario import csrf
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=8000, debug=True)
+
+    #Config and load CSRF
+    csrf.init_app(app)
+    
+    #Run
+    app.run()

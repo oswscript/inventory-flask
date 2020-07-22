@@ -1,6 +1,6 @@
 <!--Head-->
 {% extends 'base.html.j2' %}
-{% from '../macros/_macro_input_form.html.j2' import render_field %}
+{% from './_macros/_macro_input_form.html.j2' import render_field %}
 {% block title %} {{ title }} {% endblock %}
 <!--/end Head-->
 
@@ -18,7 +18,7 @@
 				</div>
 				<span>Point of Sale, Stock, Reports and more...</span>
 				</li>
-				<li class="right go_to"><a href="{{ url_to('/','index') }}" title="Go to Main Site" class="home">Go To Main Site</a></li>
+				<li class="right go_to"><a href="{{ url_for('index') }}" title="Go to Main Site" class="home">Go To Main Site</a></li>
 			</ul>
 		</div>
 		<div class="block_container blue_d">
@@ -30,6 +30,7 @@
 						  {{ render_field(form.username) }}
 						</li>
 						<li class="login_pass">
+							{{ render_field(form.password) }}
 						</li>
 					</ul>
 					<input class="login_btn blue_lgel" name="" value="Login" type="submit">

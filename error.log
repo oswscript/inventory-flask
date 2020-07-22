@@ -1,0 +1,55 @@
+INFO:werkzeug: * Running on http://localhost:8000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 964-257-401
+INFO:werkzeug: * Running on http://localhost:8000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 964-257-401
+INFO:werkzeug: * Running on http://localhost.localdomain:8000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 964-257-401
+INFO:werkzeug: * Running on http://localhost.localdomain:8000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 964-257-401
+INFO:werkzeug: * Detected change in '/home/oswaldo/Documentos/flask_mvc/inventory-flask/inventario/config/Config.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 964-257-401
+INFO:werkzeug: * Running on http://localhost.localdomain:8000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 964-257-401
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 964-257-401
+INFO:werkzeug: * Running on http://localhost:8000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 964-257-401
+INFO:werkzeug: * Detected change in '/home/oswaldo/Documentos/flask_mvc/inventory-flask/server.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 964-257-401
+INFO:werkzeug: * Running on http://localhost:8000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 964-257-401
+INFO:werkzeug: * Detected change in '/home/oswaldo/Documentos/flask_mvc/inventory-flask/inventario/__init__.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 964-257-401
+INFO:werkzeug: * Detected change in '/home/oswaldo/Documentos/flask_mvc/inventory-flask/inventario/__init__.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 964-257-401
+INFO:werkzeug: * Running on http://localhost:6597/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://localhost:6597/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 964-257-401
