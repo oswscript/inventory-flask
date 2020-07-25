@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <title>{{ data['title'] }}</title>
-  
-  </head>
-  <body>
+<!--Head-->
+{% extends 'base.html.j2' %}
+{% block title %} {{ title }} {% endblock %}
+<!--/end Head-->
 
-    <h1>{{ data['body'] }}</h1>
-    <h4>Hello World</h4>
-    
-  </body>
-</html>
+<!--Content-->
+{% block content %}
+  {{ flash_alerts() }}
+{% endblock %}
+<!--/end Content-->

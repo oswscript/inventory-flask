@@ -14,13 +14,28 @@
 				<li>
 				<div class="logo_small">
 					<!--<img src="{{ url_for('static',filename='images/logo-bingo.png') }}" width="99" height="35" alt="bingo">-->
-          <h4>Inventory System</h4>
+          <h4>Login</h4>
 				</div>
-				<span>Point of Sale, Stock, Reports and more...</span>
+				<span>Inventory system</span>
 				</li>
 				<li class="right go_to"><a href="{{ url_for('index') }}" title="Go to Main Site" class="home">Go To Main Site</a></li>
 			</ul>
 		</div>
+
+		<!--errors-->
+		{% if form.errors %}
+			<div class="login_invalid">
+				{% for error in form.errors.username or form.errors.password %}
+					<li><span class="icon"></span>{{ error }}</li>
+				{% endfor %}
+			</div>
+		{% endif %}
+		<!--/end errors-->
+
+		<!--errors-->
+		{{ flash_alerts() }}
+		<!--/end errors-->
+		
 		<div class="block_container blue_d">
 			<form action="#" method="POST">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">

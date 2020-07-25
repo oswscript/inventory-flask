@@ -1,17 +1,20 @@
 from wtforms import Form, Field
-from wtforms import StringField, validators, PasswordField
-from inventario.helpers.custom_validations import valid_username_limit
+from wtforms import StringField, PasswordField
+from inventario.helpers.custom_validations import *
 
 class LoginForm(Form):
-    username = StringField(
+    username = StringField('Username',
     [
-        valid_username_limit
+        valid_limit,
+        valid_no_empty
     ],
     render_kw={"placeholder": "Username"}
     )
 
-    password = PasswordField([
-        validators.DataRequired(),
+    password = PasswordField('Password',[
+        valid_no_empty,
+        validators.Length(min=6,message="Password must be at least 6 characters"),
+
     ], 
     render_kw={"placeholder": "Password"}
     )

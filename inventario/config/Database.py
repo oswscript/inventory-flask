@@ -1,9 +1,5 @@
-import mysql.connector
-
-connection = mysql.connector(
-    host = "localhost",
-    user = "root",
-    password = ""
-)
-
-cursor = connection.cursor()
+db_type = "postgresql",
+db_name= "inventario",
+host = "localhost:5432",
+user = "postgres",
+password = "1234"
