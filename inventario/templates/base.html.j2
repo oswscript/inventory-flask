@@ -1,4 +1,7 @@
 {% from '_macros/_macro_flash_alerts.html.j2' import flash_alerts %}
+{% from '_macros/_macro_navbar.html.j2' import macro_nav %}
+{% from '_macros/_macro_dropdown_menu.html.j2' import macro_dropdown_menu %}
+{% from '_macros/_macro_sidebar.html.j2' import macro_sidebar %}
 
 <!DOCTYPE html>
 <html lang="es">
@@ -12,91 +15,79 @@
     <title>{% block title %} {% endblock %}</title>
 
     <!--STYLES-->
-    <link href="{{ url_for('static', filename='css/reset.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ url_for('static', filename='css/layout.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ url_for('static', filename='css/themes.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ url_for('static', filename='css/typography.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ url_for('static', filename='css/shCore.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ url_for('static', filename='css/jquery.jqplot.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ url_for('static', filename='css/jquery-ui-1.8.18.custom.css" rel="stylesheet') }}" type="text/css">
-    <link href="{{ url_for('static', filename='css/data-table.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ url_for('static', filename='css/form.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ url_for('static', filename='css/ui-elements.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ url_for('static', filename='css/wizard.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ url_for('static', filename='css/sprite.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ url_for('static', filename='css/gradient.css') }}" rel="stylesheet" type="text/css">
-
-    <!--Scripts-->
-    <script src="{{ url_for('static', filename='js/jquery-1.7.1.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery-ui-1.8.18.custom.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.ui.touch-punch.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/chosen.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/uniform.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap-dropdown.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap-colorpicker.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/sticky.full.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.noty.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/selectToUISlider.jQuery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/fg.menu.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.tagsinput.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.cleditor.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.tipsy.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.peity.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.simplemodal.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.jBreadCrumb.1.1.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.colorbox-min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.idTabs.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.multiFieldExtender.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.confirm.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/elfinder.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/accordion.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/autogrow.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/check-all.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/data-table.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/ZeroClipboard.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/TableTools.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jeditable.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/duallist.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/easing.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/full-calendar.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/input-limiter.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/inputmask.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/iphone-style-checkbox.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/meta-data.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/quicksand.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/raty.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/smart-wizard.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/stepy.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/treeview.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/ui-accordion.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/vaidation.jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/mosaic.1.0.1.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.collapse.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.cookie.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.autocomplete.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/localdata.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/excanvas.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.jqplot.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/chart-plugins/jqplot.dateAxisRenderer.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/chart-plugins/jqplot.cursor.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/chart-plugins/jqplot.logAxisRenderer.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/chart-plugins/jqplot.canvasTextRenderer.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/chart-plugins/jqplot.canvasAxisTickRenderer.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/chart-plugins/jqplot.highlighter.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/chart-plugins/jqplot.pieRenderer.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/chart-plugins/jqplot.barRenderer.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/chart-plugins/jqplot.categoryAxisRenderer.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/chart-plugins/jqplot.pointLabels.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/chart-plugins/jqplot.meterGaugeRenderer.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/custom-scripts.js') }}"></script>
+    <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/simple-sidebar.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/custom_style.css') }}" rel="stylesheet" type="text/css">
+  
 </head>
-<body id="theme-default" class="full_block">
+<body>  
+        
+    <div class="d-flex" id="wrapper">
 
-    <!--content-->
-    {% block content %}{% endblock %}
-    <!--/end content-->
+        {% if url_for(request.endpoint) != '/' and url_for(request.endpoint) != '/signup' %}
+            <!-- Sidebar -->
+            <div class="bg-light border-right" id="sidebar-wrapper">
+                <div class="sidebar-heading"><b>Menu</b> </div>
+                <div class="list-group list-group-flush">
+                    {{ macro_sidebar('dash', 'Dashboard') }}
+                    {{ macro_sidebar('login', 'Users') }}
+                    {{ macro_sidebar('login', 'Config') }}
+                    {{ macro_sidebar('logout', 'Logout') }}
+                </div>
+                <div class="col-sm-12">
+                    {{ flash_alerts() }}
+                </div>
+            </div>
+            <!-- /#sidebar-wrapper -->
+        {% endif %}
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
 
+            {% if url_for(request.endpoint) != '/' and url_for(request.endpoint) != '/signup' %}
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Profile
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                {{ macro_dropdown_menu('login', 'Profile') }}
+                                {{ macro_dropdown_menu('logout', 'Logout') }}
+                            </div>
+                        </li>
+                    </ul>
+                    </div>
+                </nav>
+            {% endif %}
+
+            <div class="container-fluid">
+                {% block content %}{% endblock %}
+            </div>
+
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Javascripts -->
+    <script src="{{ url_for('static', filename='jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+    
 </body>
 </html>

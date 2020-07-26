@@ -1,15 +1,16 @@
 {% macro flash_alerts() %}
 
-{% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-    <ul>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul>
 
-      {% for category,message in messages %}
-        <li class="{{category}}">{{ message }}</li>
-      {% endfor %}
-       
-    </ul>  
-  {% endif %}
-{% endwith %}
+          {% for category,message in messages %}
+            <li class="alert alert-{{category}} fade show text-left"><strong>{{ message }}</strong></li>
+          {% endfor %}
+          
+        </ul>
+
+    {% endif %}
+  {% endwith %}
 
 {% endmacro %}
