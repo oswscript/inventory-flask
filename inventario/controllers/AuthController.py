@@ -1,15 +1,35 @@
 """MODULES FLASK"""
-from inventario import app
+from inventario import app, db
 from flask import render_template, redirect, url_for, request, session, flash
-import inventario.forms.LoginForm as form
+
+"""FORMS"""
+import inventario.forms.LoginForm as lform
+import inventario.forms.SignupForm as sform
 
 """DATABASES"""
 from inventario.models.UserModel import UserModel as User
+
+@app.errorhandler(404)
+def error_404(e):
+    return "Not found 404"
+
+@app.before_request
+def before_request():
+    
+    if 'user' not in session and request.endpoint in ['dash']:
+        
+        flash('You cannot enter this site without logging in', 'warning')
+        return redirect(url_for('login'))
+        
+    elif 'user' in session and request.endpoint in ['login','signup']:
+
+        return redirect(url_for('dash'))
+
 #route index
 @app.route('/', methods = ['GET','POST'])
-def index():
+def login():
     title = 'Login'
-    login_form = form.LoginForm(request.form)
+    login_form = lform.LoginForm(request.form)
 
     if request.method == 'POST' and login_form.validate():
 
@@ -17,59 +37,99 @@ def index():
         password = login_form.password.data
 
         #check username
+        check_username = User.query.filter_by(username = login_form.username.data).scalar()
+
+        #capture user data
         user = User.query.filter_by(username = username).first()
 
-        if user is not None:
+        if check_username is not None:
 
             if user.verify_password(password):
 
-                session['usr'] = user.username
-                session['usr_id'] = user.id
-                msj = "Conectado con exito"
+                session['user'] = user.username
+                session['user_id'] = user.id
+                session['user_email'] = user.email
+
+                msj = "Has successfully connected"
                 flash(msj,"success")
-                return render_template('dash.html.j2', title = "Dashboard")
+                return redirect(url_for('dash'))
                 
             else:
                 
-                msj = "Datos incorrectos"
+                msj = "Incorrect data, try again"
                 flash(msj,"danger")
                 
-            return render_template('auth/index.html.j2',title = title, form = login_form)
+            return render_template('auth/login.html.j2',title = title, form = login_form)
 
         else:
 
-            msj = "Usuario no existe"
+            msj = "This user does not exist"
             flash(msj,"danger")
-            return render_template('auth/index.html.j2',title = title, form = login_form)
+            return render_template('auth/login.html.j2',title = title, form = login_form)
 
 
     else:
-        return render_template('auth/index.html.j2',title = title, form = login_form)
+        return render_template('auth/login.html.j2',title = title, form = login_form)
 
 @app.route('/signup', methods = ['GET','POST'])
 def signup():
+    
     title = 'Sign Up'
-    login_form = form.LoginForm(request.form)
+    signup_form= sform.SignupForm(request.form)
+    login_form = lform.LoginForm(request.form)
 
-    if request.method == 'POST' and login_form.validate():
+    if request.method == 'POST' and signup_form.validate():
 
-        #return redirect( url_for('dash') )
-        if login_form.validate():
+        check_username = User.query.filter_by(username = signup_form.username.data).scalar()
+        check_email = User.query.filter_by(email = signup_form.email.data).scalar()
 
-            #Datos se sesion
-            session['username'] = "oswscript"
-            session['user_id'] = 100
-            session['user_email'] = "oswscript@gmail.com"
-            session['user_rol'] = "admin"
+        if check_username is not None:
 
-            #mensaje flash
-            msj = "Conectado con exito"
-            flash(msj,"success")
+            msj = "Username already exists."
 
-            return redirect( url_for('dash') )
+            flash(msj,"danger")
+            
+            return render_template('auth/signup.html.j2',title = title, form = signup_form)
+        
+        elif check_email is not None:
+
+            msj = "Email already exists."
+
+            flash(msj,"danger")
+            
+            return render_template('auth/signup.html.j2',title = title, form = signup_form)
 
         else:
-            return "false"
+
+            #database record
+            data = User(
+
+                fullname = signup_form.fullname.data,
+                username = signup_form.username.data,
+                email = signup_form.email.data,
+                password = signup_form.password.data
+
+            )
+            db.session.add(data)
+            db.session.commit()
+            #end database record
+
+            msj = "Registro exitoso."
+            flash(msj,"success")
+
+            return render_template('auth/login.html.j2',title = title, form = login_form)
 
     else:
-        return render_template('auth/index.html.j2',title = title, form = login_form)
+
+        return render_template('auth/signup.html.j2',title = title, form = signup_form)
+
+
+@app.route('/logout')
+def logout():
+
+    if 'user' in session:
+        session.pop('user')
+        msj = "You have disconnected"
+        flash(msj,"success")
+
+    return redirect(url_for('login'))

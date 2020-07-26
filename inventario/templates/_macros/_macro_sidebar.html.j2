@@ -1,0 +1,3 @@
+{% macro macro_sidebar(endpoint,text) %}
+    <a href="{{ url_for(endpoint) }}" class="list-group-item list-group-item-action bg-light">{{text}}</a>
+{% endmacro %}

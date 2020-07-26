@@ -5,11 +5,11 @@ from inventario.helpers.custom_validations import *
 class SignupForm(Form):
 
     #input name
-    name = StringField('Name',
+    fullname = StringField('Fullname',
     [
-        valid_no_empty
+        valid_no_empty,
     ],
-    render_kw={"placeholder": "Name"}
+    render_kw={"placeholder": "Fullname"}
     )
 
     #input username
@@ -25,18 +25,17 @@ class SignupForm(Form):
     #input email
     email = StringField('Email',
     [
-        valid_limit,
         valid_no_empty
     ],
     
-    render_kw={"placeholder": "Emails"}
+    render_kw={"placeholder": "Email"}
     )
 
     #input password
     password = PasswordField('Password',[
         valid_no_empty,
         validators.Length(min=6,message="Password must be at least 6 characters"),
-        validators.EqualTo('confirm', message='Password no match')
+        validators.EqualTo('confirm_pass', message='Password no match')
 
 
     ], 
@@ -44,4 +43,4 @@ class SignupForm(Form):
     )
 
     #input confirm password
-    confirm = PasswordField('Confirm',render_kw={"placeholder": "Confirm Password"})
+    confirm_pass = PasswordField('Confirm', render_kw={'placeholder':'Confirm password'})

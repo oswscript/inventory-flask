@@ -9,17 +9,17 @@ class UserModel(db.Model):
 
   #columns
   id = db.Column(db.Integer, primary_key=True)
-  name= db.Column(db.String(80), nullable=True)
+  fullname= db.Column(db.String(80), nullable=True)
   username= db.Column(db.String(80), unique=True, nullable=True)
   email = db.Column(db.String(256), unique=True, nullable=True)
   password = db.Column(db.String(128), nullable=False)
   created_at = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
   
   #init data
-  def __init__(self, name, username, email, password):
+  def __init__(self, fullname, username, email, password):
 
     #declare data
-    self.name = name
+    self.fullname = fullname
     self.username = username
     self.email = email
     self.password = self.create_password(password)

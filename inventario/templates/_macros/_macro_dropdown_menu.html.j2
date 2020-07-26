@@ -1,0 +1,3 @@
+{% macro macro_dropdown_menu(endpoint,text) %}
+    <a class="dropdown-item" href="{{ url_for(endpoint) }}">{{text}}</a>
+{% endmacro %}
