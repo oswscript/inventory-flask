@@ -9,6 +9,8 @@
         <div class="row">
 
             {% for user in users %}
+                {% if user.id != session['user_id'] %}
+
                 <!--item-->
                 <div class="col-sm-4">
                     <div class="card">
@@ -21,6 +23,7 @@
                     </div>
                 </div>
                 <!--/end item-->
+                {% endif %}
             {% endfor %}
 
         </div>
