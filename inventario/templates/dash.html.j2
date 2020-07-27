@@ -5,5 +5,25 @@
 
 <!--Content-->
 {% block content %}
+    <div class="container">
+        <div class="row">
+
+            {% for user in users %}
+                <!--item-->
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">User id: {{ user.id }}</h5>
+                            <p class="card-text">Email: {{ user.email }}</p>
+                            <p class="card-text">username: {{ user.username }}</p>
+                            <p class="card-text">Fullname: {{ user.fullname }}</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/end item-->
+            {% endfor %}
+
+        </div>
+    </div>
 {% endblock %}
 <!--/end Content-->
