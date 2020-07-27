@@ -3,6 +3,9 @@ from inventario import app
 from flask import render_template, redirect, url_for, request, session, flash
 import inventario.forms.LoginForm as form
 
+"""DATABASES"""
+from inventario.models.UserModel import UserModel as User
+
 @app.errorhandler(404)
 def error_404(e):
     return "Not found 404"
@@ -24,5 +27,8 @@ def before_request():
 def dash():
     
     title = 'Dashboard'
+    
+    #get all
+    users = User.query.all()
 
-    return render_template('dash.html.j2')
+    return render_template('dash.html.j2', users = users)
