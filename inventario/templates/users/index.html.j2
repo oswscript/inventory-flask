@@ -1,0 +1,50 @@
+<!--Head-->
+{% extends 'base.html.j2' %}
+{% block title %} {{ title }} {% endblock %}
+<!--/end Head-->
+
+<!--Content-->
+{% block content %}
+    <div class="container">
+    <div class="p-3">
+        <a class="btn btn-info float-right" href="{{ url_for('create_users') }}" title="New User"><i class="fas fa-plus"></i>New User</a>
+    </div>
+        <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>Full name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    {% if user.id != session['user_id'] %}
+                    <tr>
+                        <td><a href="{{ url_for('update_user', id=user.id) }}">{{ 1 + loop.index0 }}</a></td>
+                        <td><a href="{{ url_for('update_user', id=user.id) }}">{{ user.username }}</a></td>
+                        <td><a href="{{ url_for('update_user', id=user.id) }}">{{ user.fullname }}</a></td>
+                        <td><a href="{{ url_for('update_user', id=user.id) }}">{{ user.email }}</a></td>
+                        <td>
+                        <a href="{{ url_for('update_pass_user', id=user.id) }}" title="Change Password"><i class="fas fa-lock"></i></a>
+                        <a href="{{ url_for('delete_user', id=user.id) }}" title="Change Password"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>Full name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+{% endblock %}
+<!--/end Content-->
