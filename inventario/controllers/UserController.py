@@ -46,9 +46,6 @@ def create_users():
     title = 'Create users'
     signup_form= sform.SignupForm(request.form)
 
-    #get all
-    users = User.query.all()
-
     if request.method == 'POST' and signup_form.validate():
 
         check_username = User.query.filter_by(username = signup_form.username.data).scalar()
@@ -88,7 +85,7 @@ def create_users():
             msj = "Registro exitoso."
             flash(msj,"success")
 
-            return render_template('users/index.html.j2',title = title, users = users)
+        return redirect(url_for('index_user'))
 
     else:
         return render_template('users/create.html.j2',title = title, form = signup_form)
